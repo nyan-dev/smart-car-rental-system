@@ -187,11 +187,11 @@ MIT License (see LICENSE file)
 
 ## ဤ Project အကြောင်း
 
-Smart Car Rental System သည် Flask နဲ့တည်ဆောက်ထားပြီး Web Browser မှတဆင့် ငှားရမ်းသူများသည် အသုံးပြုသူအဖြစ် စာရင်းသွင်းနိုင်၊ ငှားမည့် ကားများကြည့်ရှုနိုင်၊ Booking လုပ်နိုင်၊ ငွေပေးချေမှုလုပ်နိုင်ပါသည်။ အက်ဒ်မင်အသီးသီးသည် Car Management, Booking Approve / Reject လုပ်နိုင်ပြီး ဘတ်ဂျက်တင်အသုံးပြုသူအတွက် သင့်တော်သည်။
+Smart Car Rental System သည် Flask နဲ့တည်ဆောက်ထားပြီး Web Browser မှတဆင့် ငှားရမ်းသူများသည် အသုံးပြုသူအဖြစ် စာရင်းသွင်းနိုင်၊ ငှားမည့် ကားများကြည့်ရှုနိုင်၊ Booking လုပ်နိုင်၊ ငွေပေးချေမှုလုပ်နိုင်ပါသည်။ အက်ဒ်မင်အသီးသီးသည် Car Management, Booking Approve / Reject လုပ်နိုင်သည်။
 
 ***
 
-## ဖော်ပြချက်များ (Features)
+## (Features)
 
 - အသုံးပြုသူအတွက်
    - စာရင်းသွင်းခြင်း၊ Login
@@ -207,7 +207,7 @@ Smart Car Rental System သည် Flask နဲ့တည်ဆောက်ထာ�
 
 ***
 
-## Business Logic & User Flow (လုပ်ငန်းနည်းလမ်းများ)
+## Business Logic & User Flow
 
 - Customer: Register → Login → Browse Cars → Book Now → Payment → Wait for Admin (Pending) → Get Approved/Rejected → View on My Bookings
 - Admin: Login → Visit Admin Dashboard → View/Approve/Reject Pending Bookings → Car Add/Edit/Delete
@@ -257,9 +257,9 @@ Initial Sample Cars, Admin Demo & User Roles များ admin panel တွင�
 
 ## FAQ
 
-- db ဖိုင် ဆုံးရှုံးရင် အချက်အလက်များ ပျောက်ဆုံးနိုင်သည်။ Regular backup လုပ်သည့်အခါ data ကြာရှည် သိမ်းဆည်းထားနိုင်သည်။
-- admin account ပြုလုပ်ရန် Login ပြီး role ကို db browser ဖြင့် 'admin' ပြောင်းပါ။
-- Production db ထက် နာမည်အသစ်ဖြင့် backup file create လုပ်သင့်သည်။
+- db ဖိုင် ဆုံးရှုံးရင် အချက်အလက်များ ပျောက်ဆုံးနိုင်သည်။ Regular backup လုပ်မှ data ကြာရှည် သိမ်းဆည်းထားနိုင်သည်။
+- admin account ပြုလုပ်ရန် Login ပြီး role ကို db browser (I use SQLite DB Browser) ဖြင့် 'admin' ပြောင်းပါ။
+- Production db - နာမည်အသစ်ဖြင့် backup file create လုပ်သင့်သည်။
 - Usage, bugs, or modify ကို GitHub issue/report ထည့်သုံးနိုင်သည်။
 
 ***
