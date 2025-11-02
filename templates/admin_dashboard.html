@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+<h2 class="mb-4 text-danger">Admin Dashboard</h2>
+<h4>Manage Cars</h4>
+<a href="{{ url_for('add_car') }}" class="btn btn-success mb-2">Add New Car</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Brand</th><th>Model</th><th>Year</th><th>Price/Day</th><th>Available</th><th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for car in cars %}
+        <tr>
+            <td>{{ car.brand }}</td><td>{{ car.model }}</td>
+            <td>{{ car.year }}</td><td>RM {{ car.price_per_day }}</td>
+            <td>{{ 'Yes' if car.is_available else 'No' }}</td>
+            <td>
+                <a href="{{ url_for('edit_car', car_id=car.id) }}" class="btn btn-warning btn-sm">Edit</a>
+                <a href="{{ url_for('delete_car', car_id=car.id) }}" class="btn btn-danger btn-sm"
+                   onclick="return confirm('Delete this car?')">Delete</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<h4 class="text-warning">Pending Bookings (Require Approval)</h4>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>User</th><th>Car</th><th>Start Date</th><th>End Date</th><th>Total Price</th><th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for booking in pending_bookings %}
+        <tr>
+            <td>{{ booking.user.email }}</td>
+            <td>{{ booking.car.brand }} {{ booking.car.model }}</td>
+            <td>{{ booking.start_date }}</td>
+            <td>{{ booking.end_date }}</td>
+            <td>RM {{ booking.total_price }}</td>
+            <td>
+                <a href="{{ url_for('approve_booking', booking_id=booking.id) }}" class="btn btn-success btn-sm">Approve</a>
+                <a href="{{ url_for('reject_booking', booking_id=booking.id) }}" class="btn btn-danger btn-sm">Reject</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<h4 class="mt-4">All Bookings</h4>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>User</th><th>Car</th><th>Start Date</th><th>End Date</th><th>Total Price</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for booking in bookings %}
+        <tr>
+            <td>{{ booking.user.email }}</td>
+            <td>{{ booking.car.brand }} {{ booking.car.model }}</td>
+            <td>{{ booking.start_date }}</td>
+            <td>{{ booking.end_date }}</td>
+            <td>RM {{ booking.total_price }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+

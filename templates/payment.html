@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Payment - Smart Car Rental{% endblock %}
+{% block content %}
+<h2 class="mb-4 text-secondary">Payment</h2>
+<p>Total Price: <strong>RM {{ total_price }}</strong></p>
+<form method="POST" action="{{ url_for('payment', car_id=car.id) }}">
+    {{ payment_form.hidden_tag() }}
+    <div class="mb-3">
+        {{ payment_form.payment_method.label(class="form-label") }}
+        {{ payment_form.payment_method(class="form-select") }}
+    </div>
+    <button type="submit" class="btn btn-success">Complete Payment</button>
+</form>
+<div class="mt-3">
+  <a href="{{ url_for('cars') }}" class="btn btn-secondary">Cancel</a>
+</div>
+{% endblock %}

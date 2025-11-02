@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}{{ action }}{% endblock %}
+{% block content %}
+<h2>{{ action }}</h2>
+<form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        {{ form.brand.label(class="form-label") }}{{ form.brand(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.model.label(class="form-label") }}{{ form.model(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.year.label(class="form-label") }}{{ form.year(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.price_per_day.label(class="form-label") }}{{ form.price_per_day(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.image_url.label(class="form-label") }}{{ form.image_url(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.description.label(class="form-label") }}{{ form.description(class="form-control") }}
+    </div>
+    <button type="submit" class="btn btn-success">{{ action }}</button>
+    <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

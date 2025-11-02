@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Smart Car Rental System{% endblock %}
+{% block content %}
+    <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container py-4">
+            <h1 class="display-5 fw-bold text-primary">Welcome to Smart Car Rental System!</h1>
+            <p class="col-md-8 fs-4">Book reliable cars online. Fast, secure, and convenient car rentals for your journey—anytime, anywhere in Malaysia.</p>
+            {% if not current_user.is_authenticated %}
+            <a href="{{ url_for('register') }}" class="btn btn-outline-primary btn-lg me-2">Create Account</a>
+            <a href="{{ url_for('cars') }}" class="btn btn-success btn-lg">Browse Cars</a>
+            {% else %}
+            <a href="{{ url_for('cars') }}" class="btn btn-success btn-lg">Browse Cars</a>
+            <a href="{{ url_for('my_bookings') }}" class="btn btn-outline-secondary btn-lg ms-2">My Bookings</a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}My Bookings - Smart Car Rental{% endblock %}
+{% block content %}
+<h2 class="mb-4 text-primary">My Bookings</h2>
+{# ဒီဟာက သုံးစွဲသူ တစ်ယောက်လုံးရဲ့ Booking တွေကို ပြသတယ် #}
+{% if bookings %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Car</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Total Price</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for booking in bookings %}
+            <tr>
+                <td>{{ booking.car.brand }} {{ booking.car.model }} ({{ booking.car.year }})</td>
+                <td>{{ booking.start_date }}</td>
+                <td>{{ booking.end_date }}</td>
+                <td>RM {{ booking.total_price }}</td>
+                {# Booking status ကို badge နဲ့ ပြတာပါ #}
+                <td>
+                {% if booking.status == 'pending' %}
+                    <span class="badge bg-warning text-dark">Pending</span>
+                {% elif booking.status == 'confirmed' %}
+                    <span class="badge bg-success">Confirmed</span>
+                {% elif booking.status == 'rejected' %}
+                    <span class="badge bg-danger">Rejected</span>
+                {% else %}
+                    <span class="badge bg-secondary">{{ booking.status }}</span>
+                {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    {# Booking မရှိသေးရင် ဒီ message ကို ပြမယ် #}
+    <p>You have no bookings yet.</p>
+{% endif %}
+{% endblock %}
