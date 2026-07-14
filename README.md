@@ -1,3 +1,5 @@
+> **Context:** This is a side project demonstrating a full-stack Flask web app. It is not part of the thesis research — the thesis focuses on ML anomaly detection in healthcare/fisheries.
+
 # Smart Car Rental System
 
 ## 🚗 About This Project
